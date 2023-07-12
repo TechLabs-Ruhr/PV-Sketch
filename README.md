@@ -1,4 +1,4 @@
-# ST23-Techie-Project-Template
+# PV-Sketch
 This project serves as template for the techie projects in summerterm 2023
 
 ## Setup
