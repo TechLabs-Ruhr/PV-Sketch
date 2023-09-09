@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>pv-calculate.de</title>
+
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <nav>
+ <!-- wenn logo, dann z.B <a class="logo"> <img src="logo.png" alt="Logo"> </a>-->
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#calculator"><p class="button">Start calculating</p></a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="intro">
+                <h1>
+                    Find out what PV system would work best!
+                </h1>
+            </section>
+
+            <section class="results">
+                <h2>Calculation Results</h2>
+                <div id="resultContainer"></div>
+            </section>
+        </main>
+
+        <footer>
+            <ul>
+                <li>
+                    <p> © 2023 PV Calculate</p>
+                </li>
+                <li>
+                    <a href="#"><p>Impressum</p></a>
+                </li>
+                <li>
+                    <a href="#"><p>Datenschutzerklärung</p></a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+
+    <script>
+        // check kims javascript code, ergänzung javascript code als basis, dann weiter verknüpfen
+        
+            resultContainer.textContent = `Efficiency: ${efficiency * 100}%`;
+    
+    </script>
+</body>
+</html>
