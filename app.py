@@ -1,5 +1,8 @@
-import pvlib
+#Importing libraries: Flask, pvlib and pandas
+from flask import Flask, request, render_template
+app = Flask(__name__)
 
+import pvlib
 from pvlib.modelchain import ModelChain
 from pvlib.location import Location
 from pvlib.pvsystem import PVSystem
@@ -8,6 +11,21 @@ from pvlib.temperature import TEMPERATURE_MODEL_PARAMETERS
 import pandas as pd
 
 import matplotlib.pyplot as plt
+
+#Function that returns content
+# and use Flask's app.route decorator to map the URL route / to that function:
+# Index.html is rendered
+@app.route("/")
+def index():
+    return render_template('index.html')
+
+#Processing input data from index.html
+@app.route('/process', methods=['POST'])
+def process():
+    # Hier verarbeiten Sie die Daten aus dem Formular
+    input_data = request.form['input_data']
+
+
 
 #latitude_input = input("Latitude? \n")
 #longitude_input = input("Longitude? \n")
