@@ -30,23 +30,8 @@ def process():
     quantity = float(request.form['quantity'])
 
     # Führen Sie Ihr Python-Skript aus und erhalten Sie das Ergebnis
-    result = process_data(latitude_input, longitude_input, surface_tilt_input, surface_azimuth_input, quantity)
-
-    # Geben Sie das Ergebnis an die Ergebnisseite weiter
-    return render_template('result.html', result=result)
-
-def process_data(latitude_input, longitude_input, surface_tilt_input, surface_azimuth_input, quantity):
-
-    #latitude_input = 50.94138776328743
-    #longitude_input = 6.958524886753683
-    #surface_tilt_input = 45
-    #surface_azimuth_input = 180
     
-    float(latitude_input)
-    float(longitude_input)
-    float(surface_azimuth_input)
-    float(surface_tilt_input)
-    float(quantity)
+    # Geben Sie das Ergebnis an die Ergebnisseite weiter
 
     #Create an instance of Location Class
     location = Location(latitude = latitude_input, longitude = longitude_input, tz='Europe/Berlin', altitude = 80, name = 'Cologne Cathedral')
@@ -97,8 +82,10 @@ def process_data(latitude_input, longitude_input, surface_tilt_input, surface_az
 
     # Summe erzeugter Strom in Watt
 
-    kwh = (sum(modelchain.results.ac)/1000)*quantity
-    return kwh
+    result = round(int((sum(modelchain.results.ac)/1000))*quantity,0)
+
+    return render_template('result.html', result=result)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
