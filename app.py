@@ -9,6 +9,7 @@ from pvlib.pvsystem import PVSystem
 from pvlib.temperature import TEMPERATURE_MODEL_PARAMETERS
 
 import pandas as pd
+import numpy
 
 
 #Function that returns content
@@ -22,11 +23,11 @@ def index():
 @app.route('/process', methods=['POST'])
 def process():
     # Hier verarbeiten Sie die Daten aus dem Formular
-    latitude_input = request.form['latitude_input']
-    longitude_input = request.form['longitude_input']
-    surface_tilt_input = request.form['surface_tilt_input']
-    surface_azimuth_input = request.form['surface_azimuth_input']
-    quantity = request.form['quantity']
+    latitude_input = float(request.form['latitude_input'])
+    longitude_input = float(request.form['longitude_input'])
+    surface_tilt_input = float(request.form['surface_tilt_input'])
+    surface_azimuth_input = float(request.form['surface_azimuth_input'])
+    quantity = float(request.form['quantity'])
 
     # Führen Sie Ihr Python-Skript aus und erhalten Sie das Ergebnis
     result = process_data(latitude_input, longitude_input, surface_tilt_input, surface_azimuth_input, quantity)
@@ -40,11 +41,12 @@ def process_data(latitude_input, longitude_input, surface_tilt_input, surface_az
     #longitude_input = 6.958524886753683
     #surface_tilt_input = 45
     #surface_azimuth_input = 180
+    
     float(latitude_input)
     float(longitude_input)
     float(surface_azimuth_input)
     float(surface_tilt_input)
-    int(quantity)
+    float(quantity)
 
     #Create an instance of Location Class
     location = Location(latitude = latitude_input, longitude = longitude_input, tz='Europe/Berlin', altitude = 80, name = 'Cologne Cathedral')
@@ -60,7 +62,7 @@ def process_data(latitude_input, longitude_input, surface_tilt_input, surface_az
     # Set temperature parameters by temperature data provided by pvlib
     temperature_parameters = TEMPERATURE_MODEL_PARAMETERS['sapm']['open_rack_glass_glass']
 
-    #Gettig irrad data from PVGIS
+    #Gettig irradiation data from PVGIS
     poa_data_2020, meta, inputs = pvlib.iotools.get_pvgis_hourly(latitude=latitude_input, longitude=longitude_input, start=2020, end=2020, raddatabase="PVGIS-SARAH2", components=True, 
                                                     surface_tilt=surface_tilt_input, surface_azimuth=0, 
                                                     outputformat='json', usehorizon=True, userhorizon=None, 
@@ -91,12 +93,7 @@ def process_data(latitude_input, longitude_input, surface_tilt_input, surface_az
     # AC = energy yield in watts behind inverter. 
     # So to say the end of your PV system which will be connected to rest of a house system
 
-    #modelchain.run_model(clear_sky)
-    #modelchain.results.ac.plot(figsize=(16,9))
-
     modelchain.run_model_from_poa(poa_data_2020)
-
-    #modelchain.results.ac.plot(figsize=(16,9))
 
     # Summe erzeugter Strom in Watt
 
