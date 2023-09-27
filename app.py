@@ -42,8 +42,8 @@ def process_data(latitude_input, longitude_input, surface_tilt_input, surface_az
     #surface_azimuth_input = 180
     float(latitude_input)
     float(longitude_input)
-    int(surface_azimuth_input)
-    int(surface_tilt_input)
+    float(surface_azimuth_input)
+    float(surface_tilt_input)
     int(quantity)
 
     #Create an instance of Location Class
