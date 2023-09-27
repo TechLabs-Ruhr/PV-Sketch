@@ -82,7 +82,7 @@ def process():
 
     # Summe erzeugter Strom in Watt
 
-    result = round(int((sum(modelchain.results.ac)/1000))*quantity,0)
+    result = int((sum(modelchain.results.ac)/1000))*quantity
 
     return render_template('result.html', result=result)
 
