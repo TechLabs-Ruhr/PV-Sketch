@@ -6,7 +6,7 @@
 	<title>pv-calculate.de</title>
 	<link rel="icon" href="favicon.ico">
 
-	<link rel="stylesheet" href="style.css">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
@@ -35,8 +35,10 @@
 			<section class="calculator" id="calculator">
 
 				<h2>Calculator</h2>
-
+				
 				<fieldset>
+
+					<form method="POST" action="{{ url_for('process') }}">
 					
 					<div id="locationInfo">
 						<h3>Location</h3>
@@ -44,23 +46,23 @@
 						<div>
 							<p>
 						    <label>Longitude</label>
-						    <input type="text" id="longitude" placeholder="Enter longitude">
+						    <input type="text" name="longitude_input" id="longitude" placeholder="Enter longitude">
 						  </p>
 
 							<p>
-						    <label>Postal code</label>
-						    <input type="text" id="latitude" placeholder="Enter latitude">
+						    <label>Latitude</label>
+						    <input type="text" name="latitude_input" id="latitude" placeholder="Enter latitude">
 						  </p>
 						</div>
 					</div>
 
 					<div id="consumptionInformation">
-						<h3>Consumption Info</h3>
+						<h3>Amount of PV modules</h3>
 
 						<div>
 							<p class="stretch">
-								<label for="householdInfo">Household Size</label>
-								<input type="number" id="quantity" name="quantity" min="1" max="50" step="1" placeholder="Enter number">
+								<label for="householdInfo">How many PV modules do you want to install?</label>
+								<input type="text" id="quantity" name="quantity" placeholder="Enter number">
 							</p>
 					
 							<p id="disclaimer">
@@ -72,61 +74,27 @@
 
 					<div id="roofInformation">
 						<h3>Roof Information</h3>
-
+						
 						<div id="roofInclination">
 							<label>Roof Inclination</label>
-							<div class="toggle-container">
-						    <button class="toggle-button" value="roofInclination_flat">
-						    	<div>
-						    		<img src="img/roof-flat.png" alt="">
-						    		<p>flat (0-5°)</p>
-						    	</div>
-						    </button>
-
-						    <button class="toggle-button" value="roofInclination_light">
-						    	<div>
-						    		<img src="img/roof-light.png" alt="">
-						    		<p>light (6-15°)</p>
-						    	</div>
-						    </button>
-
-						    <button class="toggle-button" value="roofInclination_moderate">
-						    	<img src="img/roof-moderate.png" alt="">
-						    	<p>moderate (16-25°)</p>
-						    </button>
-
-						    <button class="toggle-button" value="roofInclination_steep">
-						    	<img src="img/roof-steep.png" alt="">
-						    	<p>steep (26-35°)</p>
-						    </button>
-
-						    <button class="toggle-button" value="roofInclination_very-steep">
-						    	<img src="img/roof-very-steep.png" alt="">
-						    	<p>very steep (< 36°)</p>
-						    </button>
-						  </div>
-						 </div>
+							<input type="text" name="surface_tilt_input" id="" placeholder="Enter inclination of roof">
+							
+						</div>
 					
 
 					<div id="roof-orientation">
 						<label>Roof Orientation</label>
-						<select id="select-container" required>
-						 	<option disabled="" value="" selected="">Select an orientation</option>
-						 	<option value="EAST">East</option>
-						 	<option value="NORTH">North</option>
-						 	<option value="NORTH_EAST">North-East</option>
-						 	<option value="NORTH_WEST">North-West</option>
-						 	<option value="SOUTH">South</option>
-						 	<option value="SOUTH_EAST">South-East</option>
-						 	<option value="SOUTH_WEST">South-West</option>
-						 	<option value="WEST">West</option>
-				    </select>
+						<input type="text" name="surface_azimuth_input" id="" placeholder="Enter cardinal direction of roof">
+
+						
 					</div>
 
 				</div>
 
 				<input class="primary-button" type="submit" value="Send now">
-				
+
+				</form>
+
 				</fieldset>
 			</section>
 
