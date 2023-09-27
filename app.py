@@ -19,6 +19,14 @@ import numpy
 def index():
     return render_template('index.html')
 
+@app.route('/home', methods=['GET'])
+def home():
+    return render_template('index.html')
+
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template('about.html')
+
 #Processing input data from index.html
 @app.route('/process', methods=['POST'])
 def process():

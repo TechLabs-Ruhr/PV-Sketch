@@ -15,7 +15,8 @@
 
         <header class="page-header">
             <nav>
-                <a class="logo" href="index.html">PV Calculate</a>
+                <a class="logo" href="{{ url_for('home') }}">PV Calculate</a>
+                <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 
                 <ul>
                     <li><a href="about.html">About</a></li>
@@ -74,10 +75,10 @@
                     <p> © 2023 PV Calculate</p>
                 </li>
                 <li>
-                    <a href="#"><p>Impressum</p></a>
+                    <a href="{{ url_for('about') }}"><p>Impressum</p></a>
                 </li>
                 <li>
-                    <a href="#"><p>Datenschutzerklärung</p></a>
+                    <a href="{{ url_for('about') }}"><p>Datenschutzerklärung</p></a>
                 </li>
             </ul>
         </footer>

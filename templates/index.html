@@ -19,7 +19,7 @@
 				<a class="logo">PV Calculate</a>
 
 				<ul>
-					<li><a href="about.html">About</a></li>
+					<li><a href="{{ url_for('about') }}">About</a></li>
 					<li><a href="#calculator"><p class="button">Start calculating</p></a></li>
 				</ul>
 
@@ -88,7 +88,7 @@
 
 						
 					</div>
-
+					<img src="/static/roof-flat.png">
 				</div>
 
 				<input class="primary-button" type="submit" value="Send now">
@@ -106,10 +106,10 @@
 					<p> © 2023 PV Calculate</p>
 				</li>
 				<li>
-					<a href="#"><p>Impressum</p></a>
+					<a href="{{ url_for('about') }}"><p>Impressum</p></a>
 				</li>
 				<li>
-					<a href="#"><p>Datenschutzerklärung</p></a>
+					<a href="{{ url_for('about') }}"><p>Datenschutzerklärung</p></a>
 				</li>
 			</ul>
 		</footer>
