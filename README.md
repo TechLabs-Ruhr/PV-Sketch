@@ -1,44 +1,37 @@
 # PV-Sketch
 
-Description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+Description: As part of the TechLabs Dortmund Batch Summer 2023, we built a small web app that shows people who are thinking about purchasing a PV system how much electricity it will produce.
+
+We used the Flask framework and built a user-friendly frontend with html, css and javascript. In the background we wrote a Python app that uses the photovoltaic library pvlib and an interface to PVGIS. PVGIS is a European Union database that provides data on solar radiation.
 
 
 ## How to Setup and Run
 
 In order to setup the project, please proceed as follows:
 
-```bash
-  npm install my-project
-```
+Get a copy of this repository and run the code of app.py in VSCode or your preferred IDE.
 
-After successful installation use the following command to run the project:
+Alternatively you can use the following command in the terminal of VSCode:
 
 ```bash
-  npm run
-```
-## Examples
-
-You can see a brief overview of how to use the main functionality below
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
+  python -m flask run
 ```
 
-  
+After successful installation and start of the Flask app you can use localhost (see output after running the command above) to open the webapp. You can then experiment with different inputs and results.
+
+
 ## Roadmap
 
-- Additional browser support
-- Add more integrations
+- Integration of amortization calculations
+- More user friendly input interface (e.g. use of GoogleMaps for location parameters)
+- Comparison of different PV modules and inverters
 
   
 ## Authors
 
-- [@bob](https://www.github.com/bob)
-- [@alice](https://www.github.com/alice)
-
+- [@berchoff](https://www.github.com/berchoff)
+- [@aKim-psd](https://www.github.com/Kim-psd)
+- [@1eaSc](https://www.github.com/1eaSc)
+- [@aHannahCordes](https://www.github.com/HannahCordes)
   
 
