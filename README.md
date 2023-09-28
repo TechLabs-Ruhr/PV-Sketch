@@ -32,6 +32,6 @@ After successful installation and start of the Flask app you can use localhost (
 - [@berchoff](https://www.github.com/berchoff)
 - [@aKim-psd](https://www.github.com/Kim-psd)
 - [@1eaSc](https://www.github.com/1eaSc)
-- [@aHannahCordes](https://www.github.com/HannahCordes)
+- [@HannahCordes](https://www.github.com/HannahCordes)
   
 
